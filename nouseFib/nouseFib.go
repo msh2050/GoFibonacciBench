@@ -2,9 +2,9 @@
 package fib
 
 import (
+	"math/big"
 	"testing"
-
-	big "github.com/ncw/gmp"
+	//big "github.com/ncw/gmp"  discontinued and pain to do in windows...
 )
 
 func iterateAdding(n int) *big.Int {
@@ -18,9 +18,9 @@ func iterateAdding(n int) *big.Int {
 	return a
 }
 
-func FastDoubling(n int) string {
+func FastDoubling(n int) *big.Int {
 	a, _, _ := _fastDoubling(n)
-	return a.String()
+	return a
 }
 
 // (Private) Returns the tuple (F(n), F(n+1)).

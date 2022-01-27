@@ -80,6 +80,18 @@ func Test_godevsamplefibonacci(t *testing.T) {
 	}
 }
 
+//nousefibonacci
+func Test_nousefibonacci(t *testing.T) {
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := nousefibonacci(tt.args.n); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("godevsamplefibonacci() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 // bench mark for fibonacci(Func1)
 func Benchmark_fibonacci(b *testing.B) {
 
@@ -111,6 +123,32 @@ func Benchmark_tpwkfibonacci(b *testing.B) {
 		b.Run(fmt.Sprintf("input_size_%d", v.input), func(b *testing.B) {
 			for i := 0; i < b.N; i++ {
 				tpwkfibonacci(v.input)
+			}
+		})
+	}
+}
+
+//
+// bench mark for godevsamplefibonacci (Func4)
+func Benchmark_godevsamplefibonacci(b *testing.B) {
+
+	for _, v := range table {
+		b.Run(fmt.Sprintf("input_size_%d", v.input), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				godevsamplefibonacci(v.input)
+			}
+		})
+	}
+}
+
+//
+// bench mark for nousefibonacci (Func4)
+func Benchmark_nousefibonacci(b *testing.B) {
+
+	for _, v := range table {
+		b.Run(fmt.Sprintf("input_size_%d", v.input), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				nousefibonacci(v.input)
 			}
 		})
 	}

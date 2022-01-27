@@ -1,0 +1,22 @@
+name: Gobench
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: gobenchdata publish
+      uses: bobheadxi/gobenchdata@v1
+      with:
+        PRUNE_COUNT: 20
+        GO_TEST_FLAGS: -cpu 1,2
+        PUBLISH: true
+        PUBLISH_BRANCH: gh-pages

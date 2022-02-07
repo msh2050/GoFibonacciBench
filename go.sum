@@ -1,4 +1,4 @@
-github.com/ncw/gmp v1.0.4 h1:/f+vRpbpMIqDWfTGqYgCIuhoVfiyVf0ygsnwayqjGwU=
-github.com/ncw/gmp v1.0.4/go.mod h1:cDbCx93DFhzP32H3rnwwt6QnIXNL5wu4jLPCNaExheI=
+github.com/msh2050/gmp v1.0.5 h1:kCHOo3TjuFGhM4bVgw2WoyT5o+7b/wIE3zbIwSUvle8=
+github.com/msh2050/gmp v1.0.5/go.mod h1:WcLSLJyjZRt+yEYnq6IDx740s1FQUwk0vLyaJWccAKc=
 github.com/t-pwk/go-fibonacci v1.0.0 h1:DkoaBQ+kG4LvT7ujl8/PrnqjD2tF/tqZwOuRw75fb9E=
 github.com/t-pwk/go-fibonacci v1.0.0/go.mod h1:CKc6Kz++tnoyGd5fnNGOGurF5v+K0ztnc/GDBnR6ROA=

@@ -1,0 +1,8 @@
+BenchmarkFunc2-4              46          23502498
+BenchmarkFunc5-4              51          23115906
+BenchmarkFunc6-4              49          22721751
+BenchmarkFunc7GMP-4          321           3498303
+BenchmarkFunc8GMP-4          162           7230584
+BenchmarkFunc9-4              51          22519404
+BenchmarkFunc10GMP-4         156           7343624
+BenchmarkFunc11-4             75          15612652

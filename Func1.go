@@ -7,18 +7,7 @@ import (
 
 func main() {
 
-	for i := 0; i <= 10; i++ {
-
-		fmt.Printf("The %v:th fibonacci number is %v\n", i, fibonacci(i))
-	}
-
-	n := 1001
-
-	fmt.Printf("The %v:th fibonacci number is %v\n", n, fibonacci(n))
-
-	n = 500 * 1000
-
-	fmt.Printf("The %v:th fibonacci number has %v digits\n", n, len(fibonacci(n).String()))
+	fmt.Printf("fib: %v", fibonacciGoroutine(100))
 
 }
 

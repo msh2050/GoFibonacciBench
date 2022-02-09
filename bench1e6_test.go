@@ -69,5 +69,15 @@ func BenchmarkFunc11(b *testing.B) {
 		fibonacciGoroutine(1000000)
 	}
 }
+func BenchmarkFunc12(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		fibonacciGoroutine(1000000)
+	}
+}
+func BenchmarkFunc13(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		fibonaccichang(1000000)
+	}
+}
 
 //go test -bench=^BenchmarkFunc . -run=^$ -benchtime=100x -benchmem

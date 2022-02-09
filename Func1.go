@@ -1,15 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"math/big"
 )
-
-func main() {
-
-	fmt.Printf("fib: %v", fibonacciGoroutine(100))
-
-}
 
 func fibonacci(n int) *big.Int {
 	fn := make(map[int]*big.Int)

@@ -157,6 +157,30 @@ func Test_fibonacciGoroutine(t *testing.T) {
 	}
 }
 
+//fibonaccichanggoroutin
+func Test_fibonaccichanggoroutin(t *testing.T) {
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := fibonaccichanggoroutin(uint(tt.args.n)); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("godevsamplefibonacci() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+//fibonaccichang
+func Test_fibonaccichang(t *testing.T) {
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := fibonaccichang(uint(tt.args.n)); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("godevsamplefibonacci() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 // bench mark for fibonacci(Func1)
 func Benchmark_fibonacci(b *testing.B) {
 
@@ -298,6 +322,30 @@ func Benchmark_fibonacciGoroutine(b *testing.B) {
 		b.Run(fmt.Sprintf("input_size_%d", v.input), func(b *testing.B) {
 			for i := 0; i < b.N; i++ {
 				fibonacciGoroutine(v.input)
+			}
+		})
+	}
+}
+
+//fibonaccichanggoroutin
+func Benchmark_fibonaccichanggoroutin(b *testing.B) {
+
+	for _, v := range table {
+		b.Run(fmt.Sprintf("input_size_%d", v.input), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				fibonaccichanggoroutin(uint(v.input))
+			}
+		})
+	}
+}
+
+//fibonaccichang
+func Benchmark_fibonaccichang(b *testing.B) {
+
+	for _, v := range table {
+		b.Run(fmt.Sprintf("input_size_%d", v.input), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				fibonaccichang(uint(v.input))
 			}
 		})
 	}

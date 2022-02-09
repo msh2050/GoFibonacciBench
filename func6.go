@@ -10,7 +10,7 @@ func fibonaccibinary(n int) *big.Int {
 		return big.NewInt(0)
 	}
 	num := uint(n)
-	mask := bits.RotateLeft(1, bits.Len(num-1))
+	mask := bits.RotateLeft(1, bits.Len(num)-1)
 	a, b := big.NewInt(0), big.NewInt(1)
 
 	for mask > 0 {

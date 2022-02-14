@@ -1,25 +1,44 @@
 # GoFibonacciBench
 
-Benchmarking deferent Fibonacci functions and algorithms with running unit test ...
+Benchmarking many Fibonacci functions and algorithms with running unit test ...
 
 ## Introduction:
-Fibonacci numbers are special kinds of numbers that form a special sequence. This sequence is one of the famous formulas in mathematics. You can find Fibonacci numbers in plant and animal structures. These numbers are also called nature's universal rule, and nature's secret code.
+Fibonacci's numbers are special kinds of numbers that form a special sequence.
+This sequence is one of the famous formulas in mathematics.
+You can find Fibonacci numbers in plant and animal structures.
+These numbers are also called nature's universal rule, and nature's secret code.
 
-Fibonacci numbers are a sequence of whole numbers arranged as:-
+Fibonacci's numbers are a sequence of whole numbers arranged as:-
 
 ```
 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 ```
 
-## what we bechmark
-there are so maney code in the net to get Fibonacci number but I thing I can do better
+## what we benchmark
+there are so many code in the net to get Fibonacci number, but I think I can do better
 
 ## method
-1. collect the methodes used to get Fabonacci in go
-2. run unit test to check and correct (some function start form 1 not 0)
-3. check function limitation
-4. benchmark
-5. try to make/modify/inhance for best results
+1.  collect the methods used to get Fibonacci in go  :white_check_mark:
+2. run unit test to check and correct (some function start form 1 not 0) :white_check_mark:
+3. check function limitation :white_check_mark:
+4. benchmark :white_check_mark:
+5. try to make/modify/enhance for best results :white_check_mark:
+
+
+## Results:- ##
+![alt text](https://github.com/msh2050/GoFibonacciBench/blob/main/plot/operations.png?raw=true)
+
+As in the table above we made our best results with the last function (Func14).
+Some function excluded from the table because it will be very slow in big number because they use iteration method.
+The fast doubling is the fastest reliable method ... 
+The Binet formula will be faster, but it will not be accurate since we have to use floating point.
+There are many tricks to increase the speed.
+The main one is using Goroutine to run two equation concurrently.
+the other is to use table for the first 1025 fib numbers.
+the table will take about 200KB. will be used to get the fib number directly for the first 1025.
+the other use of the table is to remove the first 10 iteration of the fast doubling(2^10 =1024).
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ## sources:-
 - <https://www.cuemath.com/algebra/fibonacci-numbers/>

@@ -12,7 +12,7 @@ func check(err error) {
 		panic(err)
 	}
 }
-func creatfibtable() {
+func creatfibtable(n int) {
 	f, err := os.Create("fibtable/fibtable.txt")
 	check(err)
 	defer func(f *os.File) {
@@ -21,7 +21,7 @@ func creatfibtable() {
 	}(f)
 
 	w := bufio.NewWriter(f)
-	for i := 0; i < 1000; i++ {
+	for i := 0; i <= n; i++ {
 
 		a := fibonacciGoroutine(i).Bytes()
 		semiformat := fmt.Sprintf("%v", a)
@@ -37,4 +37,5 @@ func creatfibtable() {
 
 	err = w.Flush()
 	check(err)
+	fmt.Println("Fibtable created")
 }

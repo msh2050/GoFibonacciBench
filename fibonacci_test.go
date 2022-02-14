@@ -181,6 +181,18 @@ func Test_fibonaccichang(t *testing.T) {
 	}
 }
 
+//fibt
+func Test_fibt(t *testing.T) {
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := fibt(uint(tt.args.n)); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("godevsamplefibonacci() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
 // bench mark for fibonacci(Func1)
 func Benchmark_fibonacci(b *testing.B) {
 
@@ -346,6 +358,18 @@ func Benchmark_fibonaccichang(b *testing.B) {
 		b.Run(fmt.Sprintf("input_size_%d", v.input), func(b *testing.B) {
 			for i := 0; i < b.N; i++ {
 				fibonaccichang(uint(v.input))
+			}
+		})
+	}
+}
+
+//fibt
+func Benchmark_fibt(b *testing.B) {
+
+	for _, v := range table {
+		b.Run(fmt.Sprintf("input_size_%d", v.input), func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				fibt(uint(v.input))
 			}
 		})
 	}

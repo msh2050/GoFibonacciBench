@@ -37,12 +37,3 @@ func fibonacciGoroutine(n int) *big.Int {
 	}
 
 }
-
-func CalA(a, b *big.Int, ch chan *big.Int) {
-
-	ch <- Mul(a, Sub(Mul(b, big.NewInt(2)), a))
-}
-
-func CalB(a, b *big.Int, ch chan *big.Int) {
-	ch <- Add(Mul(a, a), Mul(b, b))
-}

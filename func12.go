@@ -23,25 +23,43 @@ func fibonaccichanggoroutin(n uint) *big.Int {
 	mask := bits.RotateLeft(1, bits.Len(uint(n)-1))
 	for {
 
-		go CalA(a, b, chA)
-		go CalB(a, b, chB)
-
-		c := <-chA // F(2k) = F(k) * [ 2 * F(k+1) – F(k) ]
-		d := <-chB // F(2k+1) = F(k)^2 + F(k+1)^2
-
-		if n&mask > 0 { // n_j is odd: k = (n_j-1)/2 => n_j = 2k + 1
-			a = d         //   F(n_j) = F(2k + 1)
-			b = Add(c, d) //   F(n_j + 1) = F(2k + 2) 1= F(2k) + F(2k + 1)
-
-		} else { // n_j is even: k = n_j/2 => n_j = 2k
-			a = c //   F(n_j) = F(2k)
-			b = d //   F(n_j + 1) = F(2k + 1)
-		}
 		if mask == 1 {
+			// we are on last iteration wee need to just calculate a
+			if n&mask > 0 { // n_j is odd: k = (n_j-1)/2 => n_j = 2k + 1
+
+				a = Add(Mul(a, a), Mul(b, b))
+
+			} else { // n_j is even: k = n_j/2 => n_j = 2k
+
+				a = Mul(a, Sub(Mul(b, big.NewInt(2)), a))
+
+			}
 			return a
 
 		}
+
+		go CalA(a, b, chA)
+		go CalB(a, b, chB)
+
+		if n&mask > 0 { // n_j is odd: k = (n_j-1)/2 => n_j = 2k + 1
+
+			a = <-chB
+			b = Add(a, <-chA)
+		} else { // n_j is even: k = n_j/2 => n_j = 2k
+
+			a = <-chA
+			b = <-chB
+		}
+
 		mask = bits.RotateLeft(mask, -1)
 	}
 
+}
+func CalA(a, b *big.Int, ch chan *big.Int) {
+
+	ch <- Mul(a, Sub(Mul(b, big.NewInt(2)), a))
+}
+
+func CalB(a, b *big.Int, ch chan *big.Int) {
+	ch <- Add(Mul(a, a), Mul(b, b))
 }

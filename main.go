@@ -1,28 +1,30 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/big"
+)
 
 func main() {
-	type bitlooptests = struct {
-		a    int
-		want uint
+
+	args := []int{100, 1025, 2000, 26587, 4869875, 5987365}
+
+	for _, arg := range args {
+
+		a := fibt(uint(arg))
+		b, _ := big.NewInt(0).SetString(fibonaccigmpRC(arg).String(), 10)
+
+		if a.Cmp(b) == 0 {
+			fmt.Printf("%v: OK \n", arg)
+		} else {
+			fmt.Println(a.Sub(a, b))
+			fmt.Println(a)
+			fmt.Println(b)
+			fmt.Printf("%v: FAIL \n", arg)
+		}
+
+		fmt.Println()
+
 	}
 
-	var bitloop [20]bitlooptests
-	for i := 0; i < 20; i++ {
-
-		bitloop[i].a = i + 1
-		bitloop[i].want = bitshiftloopbuiltin(i + 1)
-
-		fmt.Printf("{ %v , %v } , ", bitloop[i].a, bitloop[i].want)
-	}
-	//bitshiftloop
-	fmt.Printf("\n\n\n")
-	for i := 0; i < 20; i++ {
-
-		bitloop[i].a = i + 1
-		bitloop[i].want = bitshiftloop(i + 1)
-
-		fmt.Printf("{ %v , %v } , ", bitloop[i].a, bitloop[i].want)
-	}
 }
